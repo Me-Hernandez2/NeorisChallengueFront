@@ -1,0 +1,49 @@
+.layout-form {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+label {
+  display: block;
+}
+
+.container-add-edit {
+  width: 100%;
+  text-align: -webkit-center;
+}
+
+.card-add-edit {
+  width: 50%;
+  text-align: -webkit-center;
+  background-color: white;
+  border-radius: 8px;
+  position: relative;
+  display: flow-root;
+}
+
+.form-title {
+  border-bottom: solid;
+}
+
+@media (max-width: 767px) {
+  .layout-form {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 2%;
+  }
+  .card-add-edit {
+    height: 100vh;
+  }
+
+}

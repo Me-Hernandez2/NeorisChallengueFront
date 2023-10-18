@@ -1,0 +1,127 @@
+/* Estilos generales para la tabla */
+.table-container {
+  max-width: 100%;
+  overflow: auto;
+  padding: 20px;
+}
+
+.table-summary {
+  float: left;
+}
+
+.table-actions {
+  float: right;
+  text-align: right;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para la columna "Logo" (ajusta el ancho según tus necesidades) */
+th:nth-child(1), td:nth-child(1) {
+  width: 100px;
+}
+
+/* Estilos para la columna "Nombre del producto" (ajusta el ancho según tus necesidades) */
+th:nth-child(2), td:nth-child(2) {
+  width: 140px;
+}
+
+/* Estilos para la columna "Descripción", "Fecha de Liberación" y "Fecha de Reestructuración" (ajusta el ancho según tus necesidades) */
+th:nth-child(3), th:nth-child(4), th:nth-child(5),
+td:nth-child(3), td:nth-child(4), td:nth-child(5) {
+  width: 140px;
+}
+
+/* Estilos para la columna "Acciones" (ajusta el ancho según tus necesidades) */
+th:nth-child(6), td:nth-child(6) {
+  width: 100px;
+}
+
+.info-icon {
+  font-size: 20px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+select {
+  width: 50px;
+}
+
+.img-table {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* Estilos para dispositivos de pantalla ancha */
+@media (min-width: 768px) {
+  .table-container {
+    max-width: 100%;
+    overflow: auto;
+  }
+  .table-scroll {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    margin-bottom: 3em;
+  }
+}
+
+/* Estilos para el select personalizado */
+.custom-select {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  cursor: pointer;
+}
+
+.custom-select::after {
+  content: '⋮'; /* Tres puntos verticales */
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .table-scroll {
+    overflow-x: auto; /* Desactiva el scroll horizontal */
+    overflow-y: auto;   /* Activa el scroll vertical */
+  }
+}

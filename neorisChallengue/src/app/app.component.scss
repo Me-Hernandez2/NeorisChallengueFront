@@ -1,0 +1,43 @@
+@import '../styles';
+
+
+/* Estilos base para el contenedor del logo */
+.logo-container {
+  display: flex; /* Usamos flexbox para centrar la imagen */
+  justify-content: center; /* Centramos horizontalmente */
+  align-items: flex-start; /* Centramos verticalmente */
+  padding: 20px 0px 20px 0px;
+}
+
+/* Estilos para la imagen */
+.logo {
+  max-width: 200px; /* La imagen no superará su tamaño original */
+  height: auto; /* Mantenemos la relación de aspecto de la imagen */
+  width: auto; /* Hacemos que la imagen se ajuste al tamaño del contenedor */
+  max-height: 100px; /* Limita la altura máxima de la imagen al 80% del contenedor */
+}
+
+.container-info {
+  position: fixed;
+  padding: 3%;
+  height: 100%;
+  width: -webkit-fill-available;
+  background-color: $color-background-card;
+
+}
+
+body {
+  font-family: $default-font;
+  font-weight: 400;
+}
+
+/* Media query para hacerla responsive en tamaños de pantalla más pequeños */
+@media (max-width: 768px) {
+  .logo-container {
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+  .logo {
+    max-height: 50%; /* Reduce la altura máxima en pantallas más pequeñas */
+  }
+}
+
