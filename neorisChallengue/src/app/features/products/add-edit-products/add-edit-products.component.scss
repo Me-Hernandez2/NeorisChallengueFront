@@ -1,12 +1,23 @@
+
 .layout-form {
   width: 100%;
   height: auto;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  text-align: center;
   padding-bottom: 2%;
+}
+
+.input-invalid{
+  border-color: red;
+  color:red;
+}
+
+.hint-invalid{
+  color: red;
+  display: block;
+  float: left;
+  margin: 0% 0% 5% 5%;
 }
 
 label {
@@ -27,8 +38,31 @@ label {
   display: flow-root;
 }
 
+label {
+  text-align: left;
+  width: 90%;
+  margin-top: 5px;
+}
+
+input {
+  width: 90%;
+  border-radius: 4px;
+  border: solid 1px;
+  height: 30px;
+}
+
 .form-title {
   border-bottom: solid;
+}
+
+.button-rigth {
+  justify-self: end;
+  padding-right: 5%;
+}
+
+.button-left {
+  justify-self: start;
+  padding-left: 5%;
 }
 
 @media (max-width: 767px) {
@@ -36,14 +70,31 @@ label {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(8, auto);
     grid-template-columns: 1fr;
     align-items: center;
     text-align: center;
     padding-bottom: 2%;
   }
   .card-add-edit {
-    height: 100vh;
+    width: 100%;
+  }
+
+  label {
+    padding-left: 5%;
+  }
+
+  .button-rigth {
+    display: block;
+    justify-self: center;
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+  .button-left {
+    display: block;
+    justify-self: center;
+    padding-left: 0;
+    margin-bottom: 10px;
   }
 
 }

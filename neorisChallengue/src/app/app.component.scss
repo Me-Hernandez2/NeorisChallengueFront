@@ -18,7 +18,7 @@
 }
 
 .container-info {
-  position: fixed;
+  position: relative;
   padding: 3%;
   height: 100%;
   width: -webkit-fill-available;
@@ -26,7 +26,7 @@
 
 }
 
-body {
+div {
   font-family: $default-font;
   font-weight: 400;
 }

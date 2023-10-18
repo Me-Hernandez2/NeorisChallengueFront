@@ -1,5 +1,15 @@
 <div class="table-container">
   <div class="table-scroll">
+    <div class="search-container">
+      <section class="layout-search">
+        <div>
+          <input placeholder="Search..." class="search-input" [(ngModel)]="searchTerm" (input)="filterProducts()">
+        </div>
+        <div>
+          <button class="button-principal button-left" routerLink="/products/create">Agregar</button>
+        </div>
+      </section>
+    </div>
     <table>
       <thead>
       <tr>
@@ -12,38 +22,58 @@
       </tr>
       </thead>
       <tbody>
-      <!-- Aquí irían las filas de datos, puedes usar un bucle para generarlas dinámicamente -->
-      <tr>
-        <td><img src="/assets/images/Logo.png" class="img-table" alt="Logo 1"></td>
-        <td>Producto 1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>
-          <div class="custom-select" id="dropdown" (click)="toggleDropdown()">
-            <span class="dropdown-toggle">⋮</span>
-            <div class="dropdown-content" [ngStyle]="{ 'display': isDropdownOpen ? 'block' : 'none' }">
-              <a href="#">Editar</a>
-              <a href="#">Eliminar</a>
+      <ng-container *ngFor="let product of productsLS">
+        <tr *ngIf="isItemInPage(product)">
+          <td><img [src]="product.logo" class="img-table" [alt]="product.name"></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.date_release | date }}</td>
+          <td>{{ product.date_revision | date }}</td>
+          <td>
+            <div class="custom-select" id="dropdown" (click)="toggleDropdown(product)">
+              <span class="dropdown-toggle">⋮</span>
+              <div class="dropdown-content" [ngStyle]="{ 'display': product.isDropdownOpen ? 'block' : 'none' }">
+                <a (click)="goToEdit(product)">Editar</a>
+                <a (click)="openConfirmationDialog(product.id)">Eliminar</a>
+              </div>
             </div>
-          </div>
-        </td>
-      </tr>
-      <!-- Otras filas de datos -->
+          </td>
+        </tr>
+      </ng-container>
       </tbody>
     </table>
+    <div class="pagination-controls">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">
+        <img class="imgIcon"
+             src="/assets/images/flechaIzquierda.png"
+             alt="Página anterior"></button>
+      <span>Página {{ currentPage }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === getTotalPages()">
+        <img class="imgIcon"
+             src="/assets/images/flechaDerecha.png"
+             alt="Página siguiente"></button>
+    </div>
     <div class="table-summary">
       <!-- Summary de resultados totales -->
-      Resultados totales: 100
+      {{ productsLS.length > 1 ? (productsLS.length + ' Resultados') :
+      (productsLS.length === 0 ? 'No se encontraron productos' : '1 Resultado') }}
     </div>
     <div class="table-actions">
-      <!-- Lista desplegable para seleccionar la cantidad de resultados por página -->
-      <label>Resultados por página:</label>
-      <select>
+      <select [(ngModel)]="itemsPerPage" (ngModelChange)="changeItemsPerPage()">
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="15">15</option>
+        <!-- Otras opciones -->
       </select>
     </div>
+  </div>
+</div>
+<div class="confirmation-dialog" *ngIf="showConfirmationDialog">
+  <div class="confirmation-message">
+    ¿Seguro que deseas eliminar este producto?
+  </div>
+  <div class="confirmation-buttons">
+    <button (click)="deleteProduct(); showConfirmationDialog = false;">Aceptar</button>
+    <button (click)="showConfirmationDialog = false;">Cancelar</button>
   </div>
 </div>

@@ -1,39 +1,47 @@
 <div class="container-add-edit">
   <div class="card-add-edit">
-    <h2 class="form-title">Formulario de registro</h2>
-    <section class="layout-form">
-      <div>
-        <label>test</label>
-        <input>
-      </div>
-      <div>
-        <label>test</label>
-        <input>
-      </div>
-      <div>
-        <label>test</label>
-        <input>
-      </div>
-      <div>
-        <label>test</label>
-        <input>
-      </div>
-      <div>
-        <label>test</label>
-        <input>
-      </div>
-      <div>
-        <label>test</label>
-        <input>
-      </div>
-      <div>
-        <button>Cancelar</button>
-      </div>
-      <div>
-        <button>Registrar</button>
-      </div>
+    <h2 class="form-title">Formulario de {{!!this.idEdit ? 'edición' : 'registro'}}</h2>
+    <form [formGroup]="formAddEdit">
+      <section class="layout-form">
+        <div>
+          <label>Id</label>
+          <!--suppress ALL-->
+          <input type="text" class="form-control" formControlName="id" [ngClass]="{'input-invalid':formAddEdit.get('id')?.invalid}">
+          <small class="hint-invalid" *ngIf="validateControl('id')">Este campo es requerido</small>
+        </div>
+        <div>
+          <label>Nombre</label>
+          <input formControlName="name" [ngClass]="{'input-invalid':formAddEdit.get('name')?.invalid}">
+          <small class="hint-invalid" *ngIf="validateControl('name')">Este campo es requerido</small>
+        </div>
+        <div>
+          <label>Descripción</label>
+          <input formControlName="description" [ngClass]="{'input-invalid':formAddEdit.get('description')?.invalid}">
+          <small class="hint-invalid" *ngIf="validateControl('description')">Este campo es requerido</small>
+        </div>
+        <div>
+          <label>Logo</label>
+          <input formControlName="logo" [ngClass]="{'input-invalid':formAddEdit.get('logo')?.invalid}">
+          <small class="hint-invalid" *ngIf="validateControl('logo')">Este campo es requerido</small>
+        </div>
+        <div>
+          <label>Fecha de Liberación</label>
+          <input type="date" min="{{actualDate | date:'yyyy-MM-dd'}}" formControlName="date_release" [ngClass]="{'input-invalid':formAddEdit.get('date_release')?.invalid}" (change)="generateDateRevision()">
+          <small class="hint-invalid" *ngIf="validateControl('date_release')">Este campo es requerido</small>
+        </div>
+        <div>
+          <label>Fecha de Reestructuración</label>
+          <input type="date" formControlName="date_revision" readonly>
+        </div>
+        <div class="button-rigth">
+          <button class="button-secondary" (click)="resetForm()">Reiniciar</button>
+        </div>
+        <div class="button-left">
+          <button class="button-principal" [disabled]="formAddEdit.invalid" (click)="sendInfo()">Enviar</button>
+        </div>
 
-    </section>
+      </section>
+    </form>
   </div>
 
 </div>

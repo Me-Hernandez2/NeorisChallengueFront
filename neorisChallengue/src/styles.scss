@@ -8,6 +8,7 @@ $color-text: #0E0E0E;
 $color-scrolls: #6E6E73;
 $color-placeholders: #979799;
 $color-background-card: #F4F6F9;
+$color-background-secondary: #e9ecf3;
 $default-font: 'Open Sans', sans-serif;
 
 button {
@@ -21,3 +22,79 @@ button {
   display: inline-block;
   cursor: pointer;
 }
+
+.button-secondary {
+  background-color: $color-background-secondary;
+  color: $color-title
+}
+
+.button-principal {
+  background-color: $color-principal;
+  color: $color-title;
+  &:hover {
+    background-color: #FFDE00;
+    transition: color 0.3s;
+  }
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.confirmation-dialog {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 20px;
+  text-align: center;
+}
+
+.confirmation-message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.confirmation-buttons button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.confirmation-buttons button:nth-child(1) {
+  background-color: $color-principal;
+  color: $color-title;
+}
+
+.confirmation-buttons button:nth-child(2) {
+  background-color: $color-background-secondary;
+  color: $color-title;
+}
+
+.toast {
+  position: fixed;
+  top: 16%;
+  left: 86%;
+  transform: translate(-50%, -50%);
+  background-color: #058f0f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1;
+  font-family: $default-font;
+  opacity: 0;
+  transition: opacity 2s; /* Configura la duración de la animación */
+}
+
+.show-error{
+  background-color: #e74b4b;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
