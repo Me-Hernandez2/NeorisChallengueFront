@@ -58,11 +58,13 @@ input {
 .button-rigth {
   justify-self: end;
   padding-right: 5%;
+  margin-top: 5%;
 }
 
 .button-left {
   justify-self: start;
   padding-left: 5%;
+  margin-top: 5%;
 }
 
 @media (max-width: 767px) {
