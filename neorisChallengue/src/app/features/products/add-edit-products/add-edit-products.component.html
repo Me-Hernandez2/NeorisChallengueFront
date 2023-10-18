@@ -6,7 +6,8 @@
         <div>
           <label>Id</label>
           <!--suppress ALL-->
-          <input type="text" class="form-control" formControlName="id" [ngClass]="{'input-invalid':formAddEdit.get('id')?.invalid}">
+          <input type="text" class="form-control" formControlName="id"
+                 [ngClass]="{'input-invalid':formAddEdit.get('id')?.invalid}">
           <small class="hint-invalid" *ngIf="validateControl('id')">Este campo es requerido</small>
         </div>
         <div>
@@ -26,7 +27,9 @@
         </div>
         <div>
           <label>Fecha de Liberación</label>
-          <input type="date" min="{{actualDate | date:'yyyy-MM-dd'}}" formControlName="date_release" [ngClass]="{'input-invalid':formAddEdit.get('date_release')?.invalid}" (change)="generateDateRevision()">
+          <input type="date" min="{{actualDate | date:'yyyy-MM-dd'}}" formControlName="date_release"
+                 [ngClass]="{'input-invalid':formAddEdit.get('date_release')?.invalid}"
+                 (change)="generateDateRevision()">
           <small class="hint-invalid" *ngIf="validateControl('date_release')">Este campo es requerido</small>
         </div>
         <div>

@@ -16,7 +16,6 @@ export class ToastComponent implements OnInit {
         setTimeout(() => {
           this.toastService.hideToast()
         }, 5000)
-
     })
   }
 
