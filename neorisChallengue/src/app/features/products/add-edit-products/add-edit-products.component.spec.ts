@@ -14,8 +14,8 @@ describe('AddEditProductsComponent', () => {
   let component: AddEditProductsComponent;
   let fixture: ComponentFixture<AddEditProductsComponent>;
   let createProductService: jasmine.SpyObj<CreateProductService>;
-  let editProductService: jasmine.SpyObj<EditProductService>;;
-  let validateIdService: jasmine.SpyObj<ValidateIdService>;;
+  let editProductService: jasmine.SpyObj<EditProductService>;
+  let validateIdService: jasmine.SpyObj<ValidateIdService>;
 
   beforeEach(() => {
     const formBuilder = new FormBuilder();
