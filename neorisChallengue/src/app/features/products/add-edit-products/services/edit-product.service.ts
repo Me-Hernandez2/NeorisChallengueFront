@@ -11,7 +11,7 @@ export class EditProductService {
 
   constructor(private http: HttpClient) { }
 
-  editProduct(payload: CreateProductInterface):Observable<CreateProductInterface[]>{
-    return this.http.put<CreateProductInterface[]>(environment.apiBase, payload)
+  editProduct(payload: CreateProductInterface):Observable<CreateProductInterface>{
+    return this.http.put<CreateProductInterface>(environment.apiBase, payload)
   }
 }

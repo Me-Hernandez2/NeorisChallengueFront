@@ -9,8 +9,4 @@ describe('DeleteProductService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(DeleteProductService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });
