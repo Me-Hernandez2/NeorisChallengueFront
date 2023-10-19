@@ -45,9 +45,8 @@ describe('AddEditProductsComponent', () => {
 
     validateIdService = jasmine.createSpyObj('ValidateIdService', ['validateIdProducts']);
 
-// Configura validateIdProducts para que retorne true o false
+// Configurar validateIdProducts para que retorne true o false
     validateIdService.validateIdProducts.and.callFake((id: string) => {
-      // Define tu lógica aquí para retornar true o false basado en el valor de `id`
       if (id === 'test1') {
         return of(true); // Si se cumple la condición, retorna true
       } else {
@@ -88,7 +87,6 @@ describe('AddEditProductsComponent', () => {
       component.initForm();
       expect(component.formAddEdit).toBeTruthy();
       expect(component.formAddEdit.get('id')).toBeTruthy();
-      // Agrega más expectativas para la inicialización del formulario
     });
 
     it('debería cargar datos para editar', () => {
@@ -108,7 +106,6 @@ describe('AddEditProductsComponent', () => {
       component.loadData();
 
       expect(component.formAddEdit.get('id')!.disabled).toBe(true);
-      // Agrega más expectativas para la carga de datos
     });
 
     it('debería validar el control', () => {
