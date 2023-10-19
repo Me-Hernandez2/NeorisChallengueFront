@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import { of } from 'rxjs';
 import { CreateProductInterface } from './models/createProduct.interface';
 import { AddEditProductsComponent } from './add-edit-products.component';
@@ -15,10 +14,8 @@ describe('AddEditProductsComponent', () => {
   let component: AddEditProductsComponent;
   let fixture: ComponentFixture<AddEditProductsComponent>;
   let createProductService: jasmine.SpyObj<CreateProductService>;
-  let editProductService: jasmine.SpyObj<EditProductService>;
-  ;
-  let validateIdService: jasmine.SpyObj<ValidateIdService>;
-  ;
+  let editProductService: jasmine.SpyObj<EditProductService>;;
+  let validateIdService: jasmine.SpyObj<ValidateIdService>;;
 
   beforeEach(() => {
     const formBuilder = new FormBuilder();
